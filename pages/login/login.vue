@@ -9,6 +9,21 @@
 				<view class="box-title-item">
 					登录
 				</view>
+				<!-- 账号密码表单框 -->
+				<view class="input-box">
+					<view class="input-box-left">
+						<view class="input-box-left-item">
+							身份证号码
+						</view>
+						<view class="input-box-left-item">
+							密码
+						</view>
+					</view>
+					<view class="input-box-right">
+						<input type="text" placeholder="身份证号码">
+						<input password type="text" placeholder="密码">
+					</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -49,6 +64,8 @@
 		}
 		
 		.login-box {
+			display: flex;
+			flex-direction: column;
 			width: 326px;
 			height: 210px;
 			border-radius: 15px;
@@ -56,22 +73,47 @@
 			background: #F1F1F1;
 			
 			.box-title-item {
-				display: block;
-				position: absolute;
-				margin: 19px 266px 167px 20px;
+				height: 62px;
+				padding-top: 20px;
+				padding-left: 20px;
 				color: #000;
-				font-size: 20px;
+				font-size: 25px;
 				font-style: normal;
 				font-weight: 400;
 				line-height: normal;
 			}
 			
-			.acctoun-container {
+			.input-box {
 				display: flex;
-				flex-direction: column;
-				gap: 7px;
-				position: absolute;
-				margin: 62px 36px 93px 20px;
+				
+				.input-box-left {
+					width: 91px;
+					display: flex;
+					flex-direction: column;
+					// align-items: center;
+					justify-content: center;
+					gap: 16rpx;
+					padding-left: 15px;
+					color: #000;
+					font-size: 15px;
+					font-family: Inter;
+					font-style: normal;
+					font-weight: 400;
+					line-height: normal;
+				}
+				
+				.input-box-right {
+					display: flex;
+					flex-direction: column;
+					gap: 7rpx;
+					
+					input {
+						border: 1px solid black;
+						background: #FFFFFF;
+						width: 200px;
+						height: 25px;
+					}
+				}
 			}
 		}
 	}
