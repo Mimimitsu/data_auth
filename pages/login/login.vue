@@ -9,7 +9,7 @@
 				<view class="box-title-item">
 					登录
 				</view>
-				<!-- 账号密码表单框 -->
+				<!-- 表单信息区域 -->
 				<view class="input-box">
 					<view class="input-box-left">
 						<view class="input-box-left-item">
@@ -23,6 +23,12 @@
 						<input type="text" placeholder="身份证号码">
 						<input password type="text" placeholder="密码">
 					</view>
+				</view>
+				<!-- 登录选项区域 -->
+				<view class="login-button-box">
+						<checkbox/>
+						<text>登录注册表示同意</text>
+						<uni-link herf="www.google.com" color="blue">用户协议及隐私条款</uni-link>
 				</view>
 			</view>
 		</view>
@@ -73,7 +79,7 @@
 			background: #F1F1F1;
 			
 			.box-title-item {
-				height: 62px;
+				height: 55px;
 				padding-top: 20px;
 				padding-left: 20px;
 				color: #000;
@@ -90,7 +96,6 @@
 					width: 91px;
 					display: flex;
 					flex-direction: column;
-					// align-items: center;
 					justify-content: center;
 					gap: 16rpx;
 					padding-left: 15px;
@@ -113,6 +118,24 @@
 						width: 200px;
 						height: 25px;
 					}
+				}
+			}
+			
+			.login-button-box {
+				padding-top: 10px;
+				font-size: 12px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				
+				checkbox {
+					transform: scale(0.7);
+				}
+				
+				uni-link {
+					margin-left: 5px;
+					color: blue;
+					text-decoration: underline;
 				}
 			}
 		}
