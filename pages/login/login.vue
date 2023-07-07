@@ -28,7 +28,7 @@
 				<view class="login-button-box">
 						<checkbox/>
 						<text>登录注册表示同意</text>
-						<uni-link herf="www.google.com" color="blue">用户协议及隐私条款</uni-link>
+						<text id="agree" @click="agreeNaviagte">用户协议及隐私条款</text>
 				</view>
 			</view>
 		</view>
@@ -41,6 +41,14 @@
 			return {
 				
 			};
+		},
+		methods: {
+			// 用户协议跳转点击事件处理
+			agreeNaviagte() {
+				uni.navigateTo({
+					url: '../agree/agree'
+				})
+			}
 		}
 	}
 </script>
@@ -132,7 +140,7 @@
 					transform: scale(0.7);
 				}
 				
-				uni-link {
+				#agree {
 					margin-left: 5px;
 					color: blue;
 					text-decoration: underline;
