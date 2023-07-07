@@ -20,15 +20,25 @@
 						</view>
 					</view>
 					<view class="input-box-right">
-						<input type="text" placeholder="身份证号码">
-						<input password type="text" placeholder="密码">
+						<input type="text">
+						<input password type="text" confirm-type="done">
 					</view>
 				</view>
 				<!-- 登录选项区域 -->
-				<view class="login-button-box">
-						<checkbox/>
+				<view class="login-checkbox">
+						<checkbox-group @change="checkBoxHandler">
+							<label>
+								<checkbox/>
+							</label>
+						</checkbox-group>
 						<text>登录注册表示同意</text>
 						<text id="agree" @click="agreeNaviagte">用户协议及隐私条款</text>
+				</view>
+				<!-- 登录按钮区域 -->
+				<view class="login-button-box">
+					<button type="primary" @click="buttonHandler">登录</button>
+					<text id="forget">忘记密码</text>
+					<text id="register">用户注册</text>
 				</view>
 			</view>
 		</view>
@@ -39,7 +49,7 @@
 	export default {
 		data() {
 			return {
-				
+				buttonFlag: []
 			};
 		},
 		methods: {
@@ -48,6 +58,18 @@
 				uni.navigateTo({
 					url: '../agree/agree'
 				})
+			},
+			buttonHandler() {
+				if (this.buttonFlag.length == 0) {
+					uni.showToast({
+						title: "请勾选用户协议",
+						duration: 1200
+					})
+				}
+			},
+			checkBoxHandler(e) {
+				this.buttonFlag = e.detail.value
+				console.log(e.detail);
 			}
 		}
 	}
@@ -58,8 +80,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: 30px;
-		background: greenyellow;
+		gap: 20px;
 		height: 360;
 		margin: 0 auto;
 		position: absolute;
@@ -71,7 +92,6 @@
 			width: 326px;
 			color: #000;
 			font-size: 30px;
-			font-family: Inter;
 			font-style: normal;
 			font-weight: 700;
 			line-height: normal;
@@ -87,8 +107,8 @@
 			background: #F1F1F1;
 			
 			.box-title-item {
-				height: 55px;
-				padding-top: 20px;
+				height: 50px;
+				padding-top: 10px;
 				padding-left: 20px;
 				color: #000;
 				font-size: 25px;
@@ -109,7 +129,6 @@
 					padding-left: 15px;
 					color: #000;
 					font-size: 15px;
-					font-family: Inter;
 					font-style: normal;
 					font-weight: 400;
 					line-height: normal;
@@ -129,8 +148,8 @@
 				}
 			}
 			
-			.login-button-box {
-				padding-top: 10px;
+			.login-checkbox {
+				padding-top: 5px;
 				font-size: 12px;
 				display: flex;
 				justify-content: center;
@@ -144,6 +163,34 @@
 					margin-left: 5px;
 					color: blue;
 					text-decoration: underline;
+				}
+			}
+			
+			.login-button-box {
+				
+				button {
+					width: 200px;
+					height: 31px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					letter-spacing: 20px;
+					text-indent: 20px;
+					border-radius: 0px;
+				}
+				
+				#forget {
+					position: absolute;
+					left: 10px;
+					font-size: 12px;
+					color: #1AAD19;
+				}
+				
+				#register {
+					position: absolute;
+					right: 10px;
+					font-size: 12px;
+					color: #1AAD19;
 				}
 			}
 		}
