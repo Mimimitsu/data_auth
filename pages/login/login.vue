@@ -20,8 +20,8 @@
 						</view>
 					</view>
 					<view class="input-box-right">
-						<input type="text">
-						<input password type="text" confirm-type="done">
+						<input type="text" v-model="ID">
+						<input password type="text" confirm-type="done" v-model="passward">
 					</view>
 				</view>
 				<!-- 登录选项区域 -->
@@ -49,7 +49,15 @@
 	export default {
 		data() {
 			return {
-				buttonFlag: []
+				// 勾选协议检测
+				buttonFlag: [],
+				// 用户身份证
+				ID: "",
+				// 用户密码
+				passward: "",
+				// 账号密码核对检测
+				accChecked: true
+				
 			};
 		},
 		methods: {
@@ -60,16 +68,42 @@
 				})
 			},
 			buttonHandler() {
+				// 表单输入内容处理
+				if (this.ID.length == 0 || this.passward.length == 0) {
+					uni.showToast({
+						title: "请输入账号密码",
+						icon: "error",
+						duration: 1200
+					})
+					return
+				}
+				// 用户协议勾选检测
 				if (this.buttonFlag.length == 0) {
 					uni.showToast({
 						title: "请勾选用户协议",
+						icon:"error",
+						duration: 1200
+					})
+					return
+				}
+				// 表单信息处理
+				console.log("身份证：" + this.ID);
+				console.log("密码：" + this.passward);
+				// 登录跳转
+				if (this.accChecked) {
+					uni.navigateTo({
+						url: "../face_recognition/face_recognition"
+					})
+				} else{
+					uni.showToast({
+						title: "账号或密码错误",
+						icon:"error",
 						duration: 1200
 					})
 				}
 			},
 			checkBoxHandler(e) {
 				this.buttonFlag = e.detail.value
-				console.log(e.detail);
 			}
 		}
 	}

@@ -18,6 +18,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/face_recognition/face_recognition",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
