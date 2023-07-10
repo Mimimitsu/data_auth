@@ -38,7 +38,7 @@
 				<view class="login-button-box">
 					<button type="primary" @click="buttonHandler">登录</button>
 					<text id="forget">忘记密码</text>
-					<text id="register">用户注册</text>
+					<text id="register" @click="registerHandler">用户注册</text>
 				</view>
 			</view>
 		</view>
