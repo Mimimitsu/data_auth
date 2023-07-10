@@ -1,0 +1,13 @@
+{
+  "hash": "bab1d2de",
+  "browserHash": "931615c7",
+  "optimized": {
+    "image-tools": {
+      "src": "../../node_modules/image-tools/index.js",
+      "file": "image-tools.js",
+      "fileHash": "46024c3f",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}

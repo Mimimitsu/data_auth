@@ -27,6 +27,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/homepage/homepage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
