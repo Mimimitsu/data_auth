@@ -61,6 +61,12 @@
 			};
 		},
 		methods: {
+			// 用户注册页面跳转
+			registerHandler() {
+				uni.navigateTo({
+					url: "/pages/register/register"
+				})
+			},
 			// 用户协议跳转点击事件处理
 			agreeNaviagte() {
 				uni.navigateTo({
