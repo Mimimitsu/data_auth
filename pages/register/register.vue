@@ -20,7 +20,7 @@
 		<view class="input-container">
 			<view class="input-item">
 				<text id="password">密码</text>
-				<input password type="text" v-model="ID" placeholder="填写密码">
+				<input password type="text" v-model="passward" placeholder="填写密码">
 			</view>
 		</view>
 		<view class="line"> </view>
@@ -32,7 +32,7 @@
 				</label>
 			</checkbox-group>
 			<text>我已阅读并同意</text>
-			<text id="agree" @click="agreeNaviagte">《软件许可及服务协议》</text>
+			<text id="agree">《软件许可及服务协议》</text>
 		</view>
 		<view class="button-container">
 			<button type="primary" @click="buttonHandler">同意并继续</button>
@@ -45,8 +45,58 @@
 		data() {
 			return {
 				ID: "",
-				
+				passward: "",
+				buttonFlag: [],
+				accChecked: true
 			};
+		},
+		methods: {
+			// 协议勾选事件处理
+			checkBoxHandler(e) {
+				this.buttonFlag = e.detail.value
+			},
+			buttonHandler() {
+				// 表单输入内容处理
+				if (this.ID.length == 0 || this.passward.length == 0) {
+					uni.showToast({
+						title: "请输入账号密码",
+						icon: "error",
+						duration: 1200
+					})
+					return
+				}
+				// 用户协议勾选检测
+				if (this.buttonFlag.length == 0) {
+					uni.showToast({
+						title: "请勾选用户协议",
+						icon:"error",
+						duration: 1200
+					})
+					return
+				}
+				// 表单信息处理
+				console.log("身份证：" + this.ID);
+				console.log("密码：" + this.passward);
+				// 确认注册
+				if (this.accChecked) {
+					uni.showToast({
+						title: "账号注册成功",
+						icon: "success",
+						duration: 1200
+					})
+					// 注册成功，返回登录界面
+					uni.navigateTo({
+						url: "../login/login"
+					})
+				}else {
+					uni.showToast({
+						title: "error",
+						icon: "error",
+						duration: 1200
+					})
+					return
+				}
+			}
 		}
 	}
 </script>
