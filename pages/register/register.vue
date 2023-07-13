@@ -5,7 +5,7 @@
 			身份证注册
 		</view>
 		<!-- 头像选择 -->
-		<view class="avatar-choose">
+		<view class="avatar-choose" @click="avatarChoose">
 			<uni-icons type="camera-filled" size="30"></uni-icons>
 		</view>
 		<!-- 身份证表单 -->
@@ -47,7 +47,10 @@
 				ID: "",
 				passward: "",
 				buttonFlag: [],
-				accChecked: true
+				// 登录账号密码合法验证
+				accChecked: true,
+				// 用户头像路径
+				avatarPath: ""
 			};
 		},
 		methods: {
@@ -74,6 +77,14 @@
 					})
 					return
 				}
+				if (this.avatarPath.length == 0) {
+					uni.showToast({
+						title: "请选择头像",
+						icon:"error",
+						duration: 1200
+					})
+					return
+				}
 				// 表单信息处理
 				console.log("身份证：" + this.ID);
 				console.log("密码：" + this.passward);
@@ -85,9 +96,11 @@
 						duration: 1200
 					})
 					// 注册成功，返回登录界面
-					uni.navigateTo({
-						url: "../login/login"
-					})
+					setTimeout(() => {
+						uni.navigateTo({
+							url: "../login/login"
+						})
+					}, "1200")
 				}else {
 					uni.showToast({
 						title: "error",
@@ -96,6 +109,18 @@
 					})
 					return
 				}
+			},
+			// 头像选择事件
+			avatarChoose() {
+				uni.chooseImage({
+					count: 1,
+					sizeType: "compressed",
+					sourceType: "album",
+					success:function(res){
+						this.avatarPath = res.tempFilePaths
+						console.log(JSON.stringify(res.tempFilePaths))
+					}
+				})
 			}
 		}
 	}
