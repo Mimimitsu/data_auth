@@ -31,7 +31,7 @@
             "path" : "pages/homepage/homepage",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "数据授权应用平台",
                 "enablePullDownRefresh": false
             }
             
