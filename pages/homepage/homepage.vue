@@ -24,15 +24,19 @@
 		<!-- 选项设置区域 -->
 		<view class="option-container">
 			<view class="option-item">
+				<uni-icons id="option" type="chat" size="22" style="{margin-left: 22rpx;}"></uni-icons>
 				授权消息
 			</view>
 			<view class="option-item">
+				<uni-icons id="option" type="list" size="22"></uni-icons>
 				授权记录
 			</view>
 			<view class="option-item">
+				<uni-icons id="option" type="person" size="22"></uni-icons>
 				个人信息
 			</view>
 			<view class="option-item">
+				<uni-icons id="option" type="gear" size="22"></uni-icons>
 				设置
 			</view>
 		</view>
@@ -50,8 +54,9 @@
 </script>
 
 <style lang="scss">
-	.body {
+	page {
 		background-color: #f1f1f1;
+		height: 100%;
 	}
 	
 	.user-info-container {
@@ -115,6 +120,26 @@
 			height: 20px;
 			margin-left: 75px;
 			margin-right: 5px;
+		}
+	}
+	
+	.option-container {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		
+		.option-item {
+			font-size: 15px;
+			background-color: #ffffff;
+			height: 37px;
+			display: flex;
+			align-items: center;
+			border-top: 1px solid #aaa;
+			border-bottom: 1px solid #aaa;
+		}
+		
+		#option{
+			
 		}
 	}
 </style>
