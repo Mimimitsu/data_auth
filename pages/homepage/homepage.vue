@@ -24,20 +24,24 @@
 		<!-- 选项设置区域 -->
 		<view class="option-container">
 			<view class="option-item">
-				<uni-icons id="option" type="chat" size="22" style="{margin-left: 22rpx;}"></uni-icons>
+				<uni-icons id="option" type="chat" size="25"></uni-icons>
 				授权消息
+				<uni-icons id="option-arrow" type="right"></uni-icons>
 			</view>
 			<view class="option-item">
-				<uni-icons id="option" type="list" size="22"></uni-icons>
+				<uni-icons id="option" type="list" size="25"></uni-icons>
 				授权记录
+				<uni-icons id="option-arrow" type="right"></uni-icons>
 			</view>
 			<view class="option-item">
-				<uni-icons id="option" type="person" size="22"></uni-icons>
+				<uni-icons id="option" type="person" size="25"></uni-icons>
 				个人信息
+				<uni-icons id="option-arrow" type="right"></uni-icons>
 			</view>
 			<view class="option-item">
-				<uni-icons id="option" type="gear" size="22"></uni-icons>
+				<uni-icons id="option" type="gear" size="25"></uni-icons>
 				设置
+				<uni-icons id="option-arrow" type="right"></uni-icons>
 			</view>
 		</view>
 	</view>
@@ -61,7 +65,7 @@
 	
 	.user-info-container {
 		display: flex;
-		justify-content: center;
+		// justify-content: center;
 		align-items: center;
 		background-color: #ffffff;
 		border-top: 1px solid #aaa;
@@ -116,9 +120,9 @@
 		align-items: center;
 		
 		#qrcode {
-			width: 20px;
-			height: 20px;
-			margin-left: 75px;
+			width: 25px;
+			height: 25px;
+			margin-left: 65px;
 			margin-right: 5px;
 		}
 	}
@@ -139,7 +143,13 @@
 		}
 		
 		#option{
-			
+			margin-right: 22px;
+			margin-left: 18px;
+		}
+		
+		#option-arrow {
+			position: absolute;
+			right: 13px;
 		}
 	}
 </style>

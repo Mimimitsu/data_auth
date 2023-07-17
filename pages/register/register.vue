@@ -8,6 +8,14 @@
 		<view class="avatar-choose" @click="avatarChoose">
 			<uni-icons type="camera-filled" size="30"></uni-icons>
 		</view>
+		<!-- 用户名表单 -->
+		<view class="input-container">
+			<view class="input-item">
+				<text id="user-name">用户名</text>
+				<input type="text" v-model="user_name" placeholder="填写用户名">
+			</view>
+		</view>
+		<view class="line"> </view>
 		<!-- 身份证表单 -->
 		<view class="input-container">
 			<view class="input-item">
@@ -46,6 +54,7 @@
 			return {
 				ID: "",
 				passward: "",
+				user_name: "",
 				buttonFlag: [],
 				// 登录账号密码合法验证
 				accChecked: true,
@@ -60,9 +69,9 @@
 			},
 			buttonHandler() {
 				// 表单输入内容处理
-				if (this.ID.length == 0 || this.passward.length == 0) {
+				if (this.ID.length !== 18 || this.passward.length == 0 || this.user_name.length == 0) {
 					uni.showToast({
-						title: "请输入账号密码",
+						title: "请填写账户信息",
 						icon: "error",
 						duration: 1200
 					})
@@ -161,6 +170,11 @@
 	}
 	.input-item {
 		display: flex;
+		
+		#user-name {
+			position: relative;
+			left: 12px;
+		}
 		
 		#ID {
 			position: relative;
