@@ -64,7 +64,7 @@
                     "path" : "auth_message/auth_message",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "授权消息",
                     "enablePullDownRefresh": false
                 }
                 
