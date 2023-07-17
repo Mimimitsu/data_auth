@@ -17,28 +17,28 @@
 			</view>
 			<!-- 用户二维码 -->
 			<view class="user-qrcode-box">
-				<img id="qrcode" src="/static/qrcode_img.png">
+				<img id="qrcode" src="/static/qrcode_img.png" @click="qrcodeHandler">
 				<uni-icons type="right"></uni-icons>
 			</view>
 		</view>
 		<!-- 选项设置区域 -->
 		<view class="option-container">
-			<view class="option-item">
+			<view class="option-item" @click="messageHandler">
 				<uni-icons id="option" type="chat" size="25"></uni-icons>
 				授权消息
 				<uni-icons id="option-arrow" type="right"></uni-icons>
 			</view>
-			<view class="option-item">
+			<view class="option-item" @click="logHandler">
 				<uni-icons id="option" type="list" size="25"></uni-icons>
 				授权记录
 				<uni-icons id="option-arrow" type="right"></uni-icons>
 			</view>
-			<view class="option-item">
+			<view class="option-item" @click="infoHandler">
 				<uni-icons id="option" type="person" size="25"></uni-icons>
 				个人信息
 				<uni-icons id="option-arrow" type="right"></uni-icons>
 			</view>
-			<view class="option-item">
+			<view class="option-item" @click="setHandler">
 				<uni-icons id="option" type="gear" size="25"></uni-icons>
 				设置
 				<uni-icons id="option-arrow" type="right"></uni-icons>
@@ -53,6 +53,38 @@
 			return {
 				
 			};
+		},
+		methods: {
+			// 二维码图标点击事件
+			qrcodeHandler() {
+				uni.navigateTo({
+					url: "/subpkg/qr_code/qr_code"
+				})
+			},
+			// 授权消息页面跳转
+			messageHandler() {
+				uni.navigateTo({
+					url: "/subpkg/auth_message/auth_message"
+				})
+			},
+			// 授权记录页面跳转
+			logHandler() {
+				uni.navigateTo({
+					url: "/subpkg/auth_log/auth_log"
+				})
+			},
+			// 个人信息页面跳转
+			infoHandler() {
+				uni.navigateTo({
+					url: "/subpkg/user_info/user_info"
+				})
+			},
+			// 设置页面跳转
+			setHandler() {
+				uni.navigateTo({
+					url: "/subpkg/settings/settings"
+				})
+			},
 		}
 	}
 </script>
