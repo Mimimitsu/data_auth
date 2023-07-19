@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<scroll-view scroll-y="true">
-			<view class="msg-item" v-for="(item,index) in msg_list" :key="index">
+			<view class="msg-item" v-for="(item,index) in msg_list" :key="index" @click="msgClickHandler(item)">
 				<!-- 消息图标 -->
 				<view class="icon-container">
 					<uni-icons type="list" size="40px" color="#2782D7"></uni-icons>
@@ -48,6 +48,14 @@
 				],
 				msg_num: 0
 			};
+		},
+		methods: {
+			// 消息点击事件
+			msgClickHandler(item) {
+				uni.navigateTo({
+					url: '/subpkg/auth_msg_detail/auth_msg_detail?number=' + item.number
+				})
+			}
 		}
 	}
 </script>

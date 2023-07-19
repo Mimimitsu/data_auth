@@ -96,6 +96,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "auth_msg_detail/auth_msg_detail",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],
