@@ -25,7 +25,7 @@
 					<view>数据来源</view>
 					<view>工单号</view>
 					<view>使用用途</view>
-					<view>授权方式</view>
+					<view id="method">授权方式</view>
 				</view>
 				<view class="right-box">
 					<view>未确认</view>
@@ -33,14 +33,14 @@
 					<view>广西疫情防控一体化数据库</view>
 					<view>0000-0000-0000-01</view>
 					<view>测试测试测试测试测试测试</view>
-					<view>线上远程授权</view>
+					<view id="method">线上远程授权</view>
 				</view>
 			</view>
 		</view>
 		
 		<view class="option-container">
-			<view>确认</view>
-			<view>拒绝</view>
+			<view id="agree">确认</view>
+			<view id="refuse">拒绝</view>
 		</view>
 	</view>
 </template>
@@ -61,5 +61,104 @@
 </script>
 
 <style lang="scss">
-
+	page {
+		background-color: #f1f1f1;
+		height: 100%;
+	}
+	
+	.body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #FFFFFF;
+		border-bottom: 1px solid #AAA;
+		
+		.icon-container {
+			margin-top: 30px;
+			margin-bottom: 17px;
+		}
+		
+		.title-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			color: #000;
+			font-size: 25px;
+			font-weight: 500;
+			
+			.sub-title {
+				color: #000;
+				font-size: 15px;
+				font-weight: 400;
+				margin-top: 11px;
+				margin-bottom: 34px;
+			}
+		}
+		
+		&::after {
+			content: ' ';
+			display: block;
+			position: relative;
+			width: 80%;
+			height: 1px;
+			background-color: rgba(0, 0, 0, 0.10);;
+			bottom: 46px;
+		}
+	}
+	
+	.detail-container {
+		display: flex;
+		
+		.left-box {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			color: rgba(0, 0, 0, 0.65);
+			font-size: 12px;
+			font-weight: 400;
+			margin-right: 40px;
+		}
+		
+		.right-box {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			color: #000;
+			font-size: 12px;
+			font-weight: 400;
+		}
+		
+		#method {
+			margin-top: 31px;
+			margin-bottom: 18px;
+		}
+	}
+	
+	.option-container {
+		margin-top: 15px;
+		display: flex;
+		
+		#agree {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex: 1;
+			height: 45px;
+			background: #FFF;
+			border: 1px solid #AAA;
+			color: #1aad19;
+		}
+		
+		#refuse {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex: 1;
+			height: 45px;
+			background: #FFF;
+			border: 1px solid #AAA;
+			border-left: 0px;
+			color: #d84143;
+		}
+	}
 </style>

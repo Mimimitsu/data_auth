@@ -100,7 +100,7 @@
                     "path" : "auth_msg_detail/auth_msg_detail",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "授权消息",
                     "enablePullDownRefresh": false
                 }
                 
