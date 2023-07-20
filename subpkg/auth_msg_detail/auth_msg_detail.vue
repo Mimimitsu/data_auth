@@ -28,19 +28,19 @@
 					<view id="method">授权方式</view>
 				</view>
 				<view class="right-box">
-					<view>未确认</view>
+					<view>{{status[0]}}</view>
 					<view>2023-06-28 11:03</view>
 					<view>广西疫情防控一体化数据库</view>
-					<view>0000-0000-0000-01</view>
+					<view>{{number}}</view>
 					<view>测试测试测试测试测试测试</view>
 					<view id="method">线上远程授权</view>
 				</view>
 			</view>
 		</view>
 		
-		<view class="option-container">
-			<view id="agree">确认</view>
-			<view id="refuse">拒绝</view>
+		<view v-if="active" class="option-container">
+			<view id="agree" @click="agreeHandler">确认</view>
+			<view id="refuse" @click="refuseHandler">拒绝</view>
 		</view>
 	</view>
 </template>
@@ -50,13 +50,46 @@
 		data() {
 			return {
 				// 授权消息工单号
-				number: null
+				number: null,
+				// 授权状态
+				status: ["未确认"],
+				// 是否确认消息
+				active: true
 			};
 		},
 		onLoad:function(option){
 			this.number = option.number
 			console.log(option.number);
-		}
+		},
+		methods: {
+			// 确认按钮点击事件处理
+			agreeHandler() {
+				var that = this;
+				uni.showModal({
+					title: '是否确认授权',
+					success: function (res) {
+						if (res.confirm) {
+							that.$set(that.status, 0, "已授权")
+							that.active = false
+						}
+					}
+				});
+			},
+			// 拒绝按钮点击事件处理
+			refuseHandler() {
+				var that = this;
+				uni.showModal({
+					title: '是否拒绝授权',
+					success: function (res) {
+						if (res.confirm) {
+							that.$set(that.status, 0, "已拒绝")
+							that.active = false
+						}
+					}
+				});
+			}
+		},
+		
 	}
 </script>
 
