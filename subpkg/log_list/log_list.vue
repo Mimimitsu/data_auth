@@ -1,7 +1,6 @@
 <template>
-	<view class="body">
-		<!-- 使用自定义的搜索组件 -->
-		<my-search></my-search>
+	<view>
+		授权记录列表
 	</view>
 </template>
 
@@ -16,7 +15,5 @@
 </script>
 
 <style lang="scss">
-	page {
-		background-color: #F1F1F1;
-	}
+
 </style>

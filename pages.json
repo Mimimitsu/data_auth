@@ -105,6 +105,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "log_list/log_list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],
