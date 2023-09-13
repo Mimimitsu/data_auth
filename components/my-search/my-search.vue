@@ -16,10 +16,11 @@
 	<view v-if="history_flag" calss="history">
 		<view class="history-title">
 			<text>搜索历史</text>
-			<uni-icons type="trash" size="20"></uni-icons>
+			<uni-icons type="trash" size="20" @click="trashHandler"></uni-icons>
 		</view>
+		<view class="line"></view>
 		<view class="history-list">
-			<uni-tag :text="item" v-for="(item,index) in historys" :key="index"></uni-tag>
+			<uni-tag :text="item" v-for="(item,index) in historys" :key="index" @click="historyClickHandler"></uni-tag>
 		</view>
 	</view>
 </template>
@@ -63,6 +64,16 @@
 			// 搜索历史状态修改
 			setHistoryStatus(status) {
 				this.history_flag = status
+			},
+			// 清空搜索历史
+			trashHandler() {
+				this.history_data = []
+			},
+			// 历史记录点击事件
+			historyClickHandler(event) {
+				uni.navigateTo({
+					url: '/subpkg/search_results/search_results?'
+				})
 			}
 		},
 		computed: {
@@ -98,7 +109,9 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 40px;
+		margin-top: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
 		
 		font-size: 13px;
 		border-bottom: #efefef;
@@ -107,10 +120,17 @@
 	.history-list {
 		display: flex;
 		flex-wrap: wrap;
+		margin-left: 10px;
 		
 		.uni-tag {
 			margin-top: 5px;
 			margin-right: 5px;
 		}
+	}
+	
+	.line {
+		margin: 10px 6px;
+		height: 1px;
+		background-color: rgba(0, 0, 0, 0.10);
 	}
 </style>

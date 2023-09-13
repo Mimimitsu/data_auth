@@ -114,6 +114,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "search_results/search_results",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "搜索结果",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],
